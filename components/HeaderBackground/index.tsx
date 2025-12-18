@@ -2,7 +2,7 @@ type Props = {};
 
 const HeaderBackground: React.FC<Props> = () => {
   return (
-    <div className='fixed top-0 left-0 z-10 w-full'>
+    <div className='absolute top-0 left-0 w-full'>
       <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' className='w-full h-auto block'>
         <defs>
           <linearGradient id='gradient' x1='0%' y1='0%' x2='100%' y2='0%'>

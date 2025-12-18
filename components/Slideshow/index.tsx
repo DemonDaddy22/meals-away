@@ -40,7 +40,7 @@ const SlideShow: React.FC<Props> = () => {
           key={index}
           src={image.image}
           className={`w-full h-full object-cover absolute top-0 left-0 opacity-0 scale-110 ${
-            index === currentImageIndex ? 'z-10 opacity-100 scale-100' : ''
+            index === currentImageIndex ? 'opacity-100 scale-100' : ''
           } duration-500 ease-in-out`}
           alt={image.alt}
           priority
