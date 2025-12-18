@@ -7,7 +7,7 @@ const Home: React.FC<Props> = () => {
   return (
     <>
       <header className='flex gap-12 mt-32 mb-12 mx-auto max-w-6xl w-[90%]'>
-        <div className='w-2xl h-96'>
+        <div className='w-xl h-96'>
           <SlideShow />
         </div>
         <div>
