@@ -36,16 +36,16 @@ const Home: React.FC<Props> = () => {
         </div>
       </header>
       <div className='self-center'>
-        <section className='flex flex-col text-[#ddd6cb] text-2xl w-[90%] max-w-3xl text-center my-8 mx-auto'>
-          <h2>How it works</h2>
+        <section className='flex flex-col text-[#ddd6cb] text-xl w-[90%] max-w-3xl text-center my-8 mx-auto'>
+          <h2 className='font-bold mb-4 text-3xl'>How it works</h2>
           <p>
             NextLevel Food is a platform for foodies to share their favorite recipes with the world. It&apos;s a place
             to discover new dishes, and to connect with other food lovers.
           </p>
           <p>NextLevel Food is a place to discover new dishes, and to connect with other food lovers.</p>
         </section>
-        <section className='flex flex-col text-[#ddd6cb] text-2xl w-[90%] max-w-3xl text-center my-8 mx-auto'>
-          <h2>Why NextLevel Food?</h2>
+        <section className='flex flex-col text-[#ddd6cb] text-xl w-[90%] max-w-3xl text-center my-8 mx-auto'>
+          <h2 className='font-bold mb-4 text-3xl'>Why NextLevel Food?</h2>
           <p>
             NextLevel Food is a platform for foodies to share their favorite recipes with the world. It&apos;s a place
             to discover new dishes, and to connect with other food lovers.

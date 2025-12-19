@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import logo from '@/assets/logo.png';
+import Navlink from '../Navlink';
 
 type Props = {};
 
@@ -15,16 +16,10 @@ const Navbar: React.FC<Props> = () => {
         <Image src={logo} alt='Food on a plate' priority className='object-contain w-20 h-20' />
         NextLevel Food
       </Link>
-      <nav className='flex gap-4 p-4'>
-        <Link className='text-white font-medium hover:text-yellow-200' href='/meals'>
-          Meals
-        </Link>
-        <Link className='text-white font-medium hover:text-yellow-200' href='/community'>
-          Community
-        </Link>
-        <Link className='text-white font-medium hover:text-yellow-200' href='/meals/share'>
-          Share Meal
-        </Link>
+      <nav className='flex gap-8 p-4 text-lg'>
+        <Navlink href='/meals' label='Browse Meals' />
+        <Navlink href='/community' label='Community' />
+        <Navlink href='/meals/share' label='Share Meal' />
       </nav>
     </header>
   );
