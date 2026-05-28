@@ -13,7 +13,7 @@ const Navlink: React.FC<Props> = ({ href, label }) => {
 
   return (
     <Link
-      className={`${path === href ? 'text-yellow-400' : 'text-white'} font-medium hover:text-yellow-300`}
+      className={`${path === href ? 'text-yellow-400' : 'text-white'} font-bold tracking-wide hover:text-yellow-300`}
       href={href}
     >
       {label}

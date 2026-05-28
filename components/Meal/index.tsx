@@ -1,13 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-type Props = {
-  title: string;
-  id: string;
-  image: string;
-  summary: string;
-  creator: string;
-};
+type Props = Pick<MealDbRow, 'id' | 'title' | 'image' | 'summary' | 'creator'>;
 
 const Meal: React.FC<Props> = ({ title, id, image, summary, creator }) => {
   return (
@@ -17,7 +11,7 @@ const Meal: React.FC<Props> = ({ title, id, image, summary, creator }) => {
           <Image src={image} alt={title} className='object-cover' fill />
         </div>
         <div className='pt-2 px-4'>
-          <h2 className='m-0 text-2xl'>{title}</h2>
+          <h2 className='m-0 text-2xl font-bold'>{title}</h2>
           <p className='text-[0.75rem] text-[#cfa69b] italic'>by {creator}</p>
         </div>
       </header>

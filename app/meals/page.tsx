@@ -1,14 +1,17 @@
 import Link from 'next/link';
 
 import MealsGrid from '@/components/MealsGrid';
+import { getMeals } from '@/lib/meals';
 
 type Props = {};
 
 const MealsPage: React.FC<Props> = () => {
+  const meals = getMeals() as MealDbRow[];
+
   return (
     <>
       <header className='mt-12 mb-20 lg:my-24 mx-auto text-2xl text-[#ddd6cb] w-[90%] max-w-6xl'>
-        <h1 className='text-4xl mb-4 font-bold'>
+        <h1 className='text-5xl mb-4 font-bold'>
           Delicious meals, created{' '}
           <span className='bg-linear-to-r from-[#f9572a] to-[#ff8a05] bg-clip-text text-transparent'>by you</span>
         </h1>
@@ -22,7 +25,7 @@ const MealsPage: React.FC<Props> = () => {
           </Link>
         </p>
       </header>
-      <MealsGrid />
+      <MealsGrid meals={meals} />
     </>
   );
 };
