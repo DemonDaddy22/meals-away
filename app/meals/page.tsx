@@ -1,13 +1,18 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 import MealsGrid from '@/components/MealsGrid';
 import { getMeals } from '@/lib/meals';
 
 type Props = {};
 
-const MealsPage: React.FC<Props> = () => {
-  const meals = getMeals() as MealDbRow[];
+const Meals = async () => {
+  const meals = (await getMeals()) as MealDbRow[];
 
+  return <MealsGrid meals={meals} />;
+};
+
+const MealsPage: React.FC<Props> = () => {
   return (
     <>
       <header className='mt-12 mb-20 lg:my-24 mx-auto text-2xl text-[#ddd6cb] w-[90%] max-w-6xl'>
@@ -25,7 +30,9 @@ const MealsPage: React.FC<Props> = () => {
           </Link>
         </p>
       </header>
-      <MealsGrid meals={meals} />
+      <Suspense fallback={<p className='text-center mx-auto text-gray-300'>Fetching meals...</p>}>
+        <Meals />
+      </Suspense>
     </>
   );
 };
