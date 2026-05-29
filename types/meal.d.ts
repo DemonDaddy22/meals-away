@@ -1,7 +1,7 @@
 type Meal = {
   id: string;
   title: string;
-  image: string;
+  image: File;
   summary: string;
   instructions: string;
   creator: string;

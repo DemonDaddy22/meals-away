@@ -38,6 +38,7 @@ const ImagePicker: React.FC<Props> = ({ label, name }) => {
         )}
       </div>
       <input
+        required
         ref={inputRef}
         type='file'
         id={name}

@@ -1,6 +1,8 @@
-import { getMeal } from '@/lib/meals';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { use } from 'react';
+
+import { getMeal } from '@/lib/meals';
 
 type Props = {
   params: Promise<{
@@ -10,7 +12,13 @@ type Props = {
 
 const MealPage: React.FC<Props> = ({ params }) => {
   const { slug } = use(params);
-  const { title, creator, creator_email, image, summary, instructions } = getMeal(slug) as MealDbRow;
+  const meal = getMeal(slug) as MealDbRow;
+
+  if (!meal) {
+    notFound();
+  }
+
+  const { title, image, summary, creator, creator_email, instructions } = meal;
 
   return (
     <>
