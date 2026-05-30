@@ -1,9 +1,16 @@
+'use client';
+
+import { useActionState } from 'react';
+
 import ImagePicker from '@/components/ImagePicker';
+import MealsFormSubmit from '@/components/MealsFormSubmit';
 import { handleShareMeal } from '@/lib/actions';
 
 type Props = {};
 
 const ShareMealPage: React.FC<Props> = () => {
+  const [state, formAction] = useActionState<{ error: string | null }, FormData>(handleShareMeal, { error: null });
+
   return (
     <>
       <header className='flex flex-col w-[90%] max-w-300 mx-auto mt-12 mb-10 text-[#ddd6cb] text-[1.5rem]'>
@@ -16,7 +23,7 @@ const ShareMealPage: React.FC<Props> = () => {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className='w-[90%] max-w-300 mx-auto my-4 text-white'>
-        <form className='w-full max-w-200' action={handleShareMeal}>
+        <form className='w-full max-w-200' action={formAction}>
           <div className='flex gap-4 my-3'>
             <div>
               <label
@@ -95,13 +102,9 @@ const ShareMealPage: React.FC<Props> = () => {
             ></textarea>
           </div>
           <ImagePicker label='Pick an image' name='image' />
+          {state.error && <p className='text-red-500 mt-2'>{state.error}</p>}
           <div className='text-right my-4'>
-            <button
-              type='submit'
-              className='inline-block px-8 py-3 rounded-sm bg-linear-to-r from-[#f9572a] to-[#ff9b05] text-white text-xl shadow-[0_2px_5px_rgba(0,0,0,0.3)] hover:from-[#fd4715] hover:to-[#f9b241] focus:from-[#fd4715] focus:to-[#f9b241] disabled:bg-[#ccc] disabled:text-[#979797] disabled:cursor-not-allowed'
-            >
-              Share Meal
-            </button>
+            <MealsFormSubmit label='Share Meal' />
           </div>
         </form>
       </main>
